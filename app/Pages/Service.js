@@ -17,34 +17,34 @@ const ServiceCard = ({ iconClass, title, description }) => (
 const Card = () => {
   const items = [
     {
-      iconClass: 'fab fa-apple fa-2x',
-      title: 'App Development',
-      description: 'We provide Android & iOS App development using ReactNative and Flutter.',
+      iconClass: 'fab fa-search fa-2x',
+      title: 'SEO optimization',
+      description: 'We provide on page and off page SEO and rank your website on first page in Google.',
     },
     {
-      iconClass: 'fa fa-cloud fa-2x',
+      iconClass: 'fa fa-laptop-code fa-2x',
+      title: 'Web Design',
+      description: 'We use latest technologies to make websites like Reactjs,Expressjs,Nodejs,MongoDb.',
+    },
+    {
+      iconClass: 'fas fa-facebook-f fa-2x',
+      title: 'Social Media Marketing',
+      description: "We use SEM to do Social Media Marketing Google Ads,Meta Ads.",
+    },
+    {
+      iconClass: 'fas fa-mail-bulk fa-2x',
+      title: 'E-mail Marketing',
+      description: 'We do email marketing through Automation in Mailchimp.',
+    },
+    {
+      iconClass: 'fas fa-clouds fa-2x',
       title: 'Cloud Services',
-      description: 'We provide comprehensive cloud services, cloud strategy, and migration.',
-    },
-    {
-      iconClass: 'fas fa-cogs fa-2x',
-      title: 'Test Automation',
-      description: "Enhance testing speed and efficiency with ShivSys's test automation services.",
-    },
-    {
-      iconClass: 'fas fa-bullhorn fa-2x',
-      title: 'Digital Marketing Support',
-      description: 'We provide every digital marketing support SEO, SEM, CRM.',
-    },
-    {
-      iconClass: 'fas fa-link fa-2x',
-      title: 'SEO and Backlinks',
-      description: 'We do off-page SEO by creating high authority backlinks.',
+      description: 'We provide cloud services like AWS,Salesforce.',
     },
     {
       iconClass: 'fas fa-code fa-2x',
-      title: 'Design and Development',
-      description: 'We use Figma for design and do Development on latest technologies.',
+      title: 'App Development',
+      description: 'We provide Android &IOs app Development through ReactNative & Flutter.',
     },
   ];
 
