@@ -1,101 +1,64 @@
-"use client";
-import React from "react";
-import Image from "next/image";
-import logo from "../Assets/img/logo.png";
+"use client"; // Add this directive at the top
 
-const Header = () => {
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+// Define the ClientCard component
+const ClientCard = ({ clients = [] }) => { // Default to an empty array if no clients prop is provided
+  const [flipped, setFlipped] = useState(Array(clients.length).fill(false));
+
+  const handleFlip = (index) => {
+    const newFlipped = [...flipped];
+    newFlipped[index] = !newFlipped[index];
+    setFlipped(newFlipped);
+  };
+
   return (
-    <>
-      <nav className="bg-white fixed w-full z-20 top-0 start-0">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a
-            href="https://flowbite.com/"
-            className="flex items-center space-x-3 rtl:space-x-reverse"
-          >
-            <Image
-              src={logo}
-              alt="Flowbite Logo"
-              width={32}
-              height={32}
-              classNameName="h-8"
-            />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap">
-              Shivsys
-            </span>
-          </a>
-          <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <button
-              type="button"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              Get started
-            </button>
-            <button
-              data-collapse-toggle="navbar-sticky"
-              type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-              aria-controls="navbar-sticky"
-              aria-expanded="false"
-            >
-              <span className="sr-only">Open main menu</span>
-              <svg
-                className="w-5 h-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 17 14"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M1 1h15M1 7h15M1 13h15"
-                />
-              </svg>
-            </button>
-          </div>
-          <div
-            className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-            id="navbar-sticky"
-          >
-            <ul className="flex flex-col p-4 md:p-0 mt-4 text-gray-700 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
-              <li>
-                <a href="#" className="block py-2 px-3" aria-current="page">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#" className="block py-2 px-3 hover:text-red-900">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#" className="block py-2 px-3">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#" className="block py-2 px-3">
-                  Project
-                </a>
-              </li>
-              <li>
-                <a href="#" className="block py-2 px-3">
-                  Community +
-                </a>
-              </li>
-              <li>
-                <a href="#" className="block py-2 px-3">
-                  Contact
-                </a>
-              </li>
-            </ul>
+    <section className="service-grid pb-5 pt-5">
+      <div className="container mx-auto">
+        <div className="text-center mb-4">
+          <div className="service-title">
+            <h2 className="font-bold text-3xl">OUR CLIENTS</h2>
+            <br />
           </div>
         </div>
-      </nav>
-    </>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {clients.map((client, index) => (
+            <div key={index} className="text-center mb-3">
+              <div
+                className="bg-transparent w-64 h-64 perspective-1000 mx-auto cursor-pointer"
+                onClick={() => handleFlip(index)}
+              >
+                <div
+                  className={`relative w-full h-full text-center transition-transform duration-700 transform-style-preserve-3d shadow-md ${
+                    flipped[index] ? 'rotate-y-180' : ''
+                  }`}
+                >
+                  <div className="absolute w-full h-full backface-hidden bg-white flex items-center justify-center">
+                    <img src={client.imgSrc} alt={client.title} className="w-24 h-24" />
+                  </div>
+                  <div className="absolute w-full h-full backface-hidden bg-white flex items-center justify-center transform rotate-y-180 p-4">
+                    <h1 className="text-black">{client.title}</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
-export default Header;
+// Define prop types for validation
+ClientCard.propTypes = {
+  clients: PropTypes.arrayOf(
+    PropTypes.shape({
+      imgSrc: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
+
+export default ClientCard;

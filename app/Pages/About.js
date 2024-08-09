@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css'; // Ensure this CSS file is imported for custom animations
+import './Styles.css'; // Ensure this CSS file is imported for custom animations
 import Aboutimg from '../Assets/img/about1.gif'
 import Image from 'next/image';
 
