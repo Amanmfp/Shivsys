@@ -61,16 +61,16 @@ const Team = () => {
             className={`bg-white rounded-lg shadow-lg transform transition duration-500 hover:scale-105 animate__animated animate__fadeInUp`}
             style={{ animationDelay: member.delay }}
           >
-            <div className="text-center border-b p-6">
+            <div className="text-center border-b p-6 animate__animated animate__fadeIn">
               <Image
-                className="w-32 h-32 rounded-full mx-auto mb-4 animate__animated animate__flipInY"
+                className="w-32 h-32 rounded-full mx-auto mb-4 animate__animated animate__zoomIn"
                 src={member.imgSrc}
                 alt={member.name}
                 width={128}  // Adjusted width
                 height={128} // Adjusted height
               />
-              <h5 className="text-xl font-semibold">{member.name}</h5>
-              <span className="text-gray-500">{member.position}</span>
+              <h5 className="text-xl font-semibold animate__animated animate__fadeInUp">{member.name}</h5>
+              <span className="text-gray-500 animate__animated animate__fadeInUp">{member.position}</span>
             </div>
             <div className="flex justify-center p-4">
               {Object.keys(member.social).map((platform, i) => (

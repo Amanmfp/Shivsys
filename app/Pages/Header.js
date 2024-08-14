@@ -19,7 +19,6 @@ const ClientCard = ({ clients = [] }) => { // Default to an empty array if no cl
       <div className="container mx-auto">
         <div className="text-center mb-4">
           <div className="service-title">
-            <h2 className="font-bold text-3xl">OUR CLIENTS</h2>
             <br />
           </div>
         </div>

@@ -10,19 +10,24 @@ import Index from "./Pages/Index.css";
 import Testimonial from "./Pages/Testimonial";
 import Team from "./Pages/Team";
 import Footer from "./Pages/Footer";
+import OurClientCards from "./Pages/OurClients";
+import Navbar from "./Pages/NavBar";
 export default function Home() {
   return (
     <>
+    <Navbar/>
       <Header />
       <Hero />
       <Card />
       <About/>
       <Styles/>
       <Service/>
+      <OurClientCards/>
       <Project/>
       <Testimonial/>
       <Team/>
       <Footer/>
+     
     </>
   );
 }
